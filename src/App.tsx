@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  MainContainer,
+  ChatContainer,
+  MessageList,
+  Message,
+  MessageInput,
+} from "@chatscope/chat-ui-kit-react";
+import "@chatscope/chat-ui-kit-styles/dist/default/styles.min.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ position: "relative", height: "500px" }}>
+      <MainContainer>
+        <ChatContainer>
+          <MessageList>
+            <Message
+              model={{
+                message: "Hello my friend",
+                sentTime: "just now",
+                sender: "Joe",
+                direction: "incoming",
+                position: "single",
+              }}
+            />
+          </MessageList>
+          <MessageInput placeholder="Type message here" />
+        </ChatContainer>
+      </MainContainer>
     </div>
   );
 }
